@@ -1,24 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
+import Items from './components/Items';
+import axios from 'axios';
 import './App.css';
 
 function App() {
+  const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const fetchApiData = async () => {
+      setLoading(true);
+      const res = await axios.get('https://www.songsterr.com/a/ra/songs.json?pattern=Marley');
+      setItems(res.data);
+      setLoading(false);
+    }
+    fetchApiData();
+    // the empty set of square brackets below mimick the componentDidMount lifecycle method
+  }, []);
+  console.log(items)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <Search /> */}
+      <Items
+        items={items}
+        loading={loading}
+      />
     </div>
   );
 }
