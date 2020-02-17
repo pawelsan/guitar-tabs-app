@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 const Form = ({ addQuery }) => {
     const [value, setValue] = useState('');
-    const [option, setOption] = useState('all');
+    const [option, setOption] = useState('');
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -19,7 +19,7 @@ const Form = ({ addQuery }) => {
                 type="text"
                 value={value}
                 onChange={e => setValue(e.target.value)} />
-            <label htmlFor="tabTypes">Wybierz tabulature:</label>
+            <label htmlFor="tabTypes">Wybierz tabulaturę:</label>
             <select id="tabTypes"
                 option={option}
                 onChange={e => setOption(e.target.value)}
