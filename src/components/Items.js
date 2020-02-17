@@ -1,7 +1,10 @@
 import React from 'react';
 
-const Items = ({ items, loading }) => {
-    if (items === 'Start') {
+const Items = ({ items, allItems, loading, error }) => {
+    if (error) {
+        return <h2>{error.toString()}</h2>
+    }
+    else if (items === 'Start') {
         return <h2>Znajdź swoją piosenkę</h2>
     }
     else if (loading) {
@@ -13,7 +16,7 @@ const Items = ({ items, loading }) => {
     else {
         return (
             <>
-                <p>Liczba wyników: {items.length}</p>
+                <p>Liczba wszystkich wyników: {allItems.length}</p>
                 <ul>
                     {items.map(item => (
                         <li key={item.id}>
