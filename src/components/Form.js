@@ -9,7 +9,6 @@ const Form = ({ addQuery }) => {
         if (!value) return;
         // passing two elements to the query object
         addQuery({ value, option });
-        console.log(option)
     }
 
     return (
@@ -17,11 +16,11 @@ const Form = ({ addQuery }) => {
             <label htmlFor="nameOrTitle">Wpisz nazwisko artysty lub tytuł piosenki</label>
             <input id="nameOrTitle"
                 type="text"
-                value={value}
+                // value={value}
                 onChange={e => setValue(e.target.value)} />
             <label htmlFor="tabTypes">Wybierz tabulaturę:</label>
             <select id="tabTypes"
-                option={option}
+                // option={option}
                 onChange={e => setOption(e.target.value)}
             >
                 <option value="">Każda</option>
