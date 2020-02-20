@@ -23,11 +23,11 @@ const Items = ({ currentPage, itemsPerPage, currentItems, allItems, loading, err
                     {currentItems.map(item => (
                         <li key={item.id} className="item">
                             <ol>
-                                <li>Wykonawca: <a href={`http://www.songsterr.com/a/wa/artist?id=${item.artist.id}`}>
+                                <li><span>Wykonawca: </span><a href={`http://www.songsterr.com/a/wa/artist?id=${item.artist.id}`}>
                                     {item.artist.name}</a></li>
-                                <li>Tytuł: <a href={`http://www.songsterr.com/a/wa/song?id=${item.id}`}>{item.title}</a>
+                                <li><span>Tytuł: </span><a href={`http://www.songsterr.com/a/wa/song?id=${item.id}`}>{item.title}</a>
                                 </li>
-                                <li>Dostępne tabulatury: <ul>{item.tabTypes.map(tabType => (
+                                <li><span>Dostępne tabulatury: </span><ul>{item.tabTypes.map(tabType => (
                                     <li key={tabType}>{tabType}</li>
                                 )
                                 )}</ul></li>

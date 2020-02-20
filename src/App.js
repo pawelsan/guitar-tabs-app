@@ -17,13 +17,6 @@ const App = () => {
     const [allItems, setAllItems] = useState('Start');
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage, setItemsPerPage] = useState(10);
-    const handleItemsPerPage = (number) => {
-        setItemsPerPage(number);
-        // changing the current page to 1 when, after changing items per page, the previous current page was beyond the scope of refreshed pagination
-        if (currentPage > Math.ceil(allItems.length / number)) {
-            setCurrentPage(1)
-        }
-    };
 
     useEffect(() => {
         const fetchApiData = async () => {
@@ -45,6 +38,15 @@ const App = () => {
 
         }
     }, [query]);
+
+    // Items per page control
+    const handleItemsPerPage = (number) => {
+        setItemsPerPage(number);
+        // changing the current page to 1 when, after changing items per page, the previous current page was beyond the scope of refreshed pagination
+        if (currentPage > Math.ceil(allItems.length / number)) {
+            setCurrentPage(1)
+        }
+    };
 
     // Implementing pagination
     // Get the indices of displayed items on a given page
