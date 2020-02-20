@@ -12,24 +12,32 @@ const Form = ({ addQuery }) => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <label htmlFor="nameOrTitle">Wpisz nazwisko artysty lub tytuł piosenki</label>
+        <form className="form" onSubmit={handleSubmit}>
+            {/* <label htmlFor="nameOrTitle">Wpisz wykonawcę lub utwór</label> */}
             <input id="nameOrTitle"
                 type="text"
+                placeholder="Wykonawca lub utwór"
                 // value={value}
                 onChange={e => setValue(e.target.value)} />
-            <label htmlFor="tabTypes">Wybierz tabulaturę:</label>
-            <select id="tabTypes"
-                // option={option}
-                onChange={e => setOption(e.target.value)}
-            >
-                <option value="">Każda</option>
-                <option value="TEXT_BASS_TAB">Bass</option>
-                <option value="CHORDS">Chords</option>
-                <option value="TEXT_GUITAR_TAB">Guitar</option>
-                <option value="PLAYER">Player</option>
-            </select>
-            <input type="submit" value="Search" />
+            <div className="controls">
+                <div className="dropdown-wrapper">
+                    <label htmlFor="tabTypes" className="dropdown-label">Wybierz tabulaturę:</label>
+                    <div className="dropdown">
+                        <select id="tabTypes"
+                            // option={option}
+                            onChange={e => setOption(e.target.value)}
+                        >
+                            <option value="">Każda</option>
+                            <option value="TEXT_BASS_TAB">Bass</option>
+                            <option value="CHORDS">Chords</option>
+                            <option value="TEXT_GUITAR_TAB">Guitar</option>
+                            <option value="PLAYER">Player</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" className="submit"><i className="fas fa-search"></i></button>
+            </div>
+
         </form>
     );
 }

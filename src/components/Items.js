@@ -5,7 +5,7 @@ const Items = ({ currentPage, itemsPerPage, currentItems, allItems, loading, err
         return <h2>{error.toString()}</h2>
     }
     else if (allItems === 'Start') {
-        return <h2>Znajdź swoją piosenkę</h2>
+        return null
     }
     else if (loading) {
         return <h2>Ładowanie...</h2>
@@ -16,12 +16,12 @@ const Items = ({ currentPage, itemsPerPage, currentItems, allItems, loading, err
     else {
         return (
             <>
-                <p>Liczba wszystkich wyników: {allItems.length}</p>
+                <h2>Liczba wszystkich wyników: {allItems.length}</h2>
                 {/* ternary statement below makes the page count show only when needed */}
                 <p>{allItems !== "Start" && allItems.length !== 0 && !loading ? `Strona ${currentPage} z ${Math.ceil(allItems.length / itemsPerPage)}` : null}</p>
-                <ul>
+                <ul className="items">
                     {currentItems.map(item => (
-                        <li key={item.id}>
+                        <li key={item.id} className="item">
                             <ol>
                                 <li>Wykonawca: <a href={`http://www.songsterr.com/a/wa/artist?id=${item.artist.id}`}>
                                     {item.artist.name}</a></li>
