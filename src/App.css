@@ -1,5 +1,4 @@
 .App {
-    position: relative;
     margin: 0 auto;
     max-width: 1400px;
     min-height: 100vh;
@@ -10,6 +9,7 @@
 }
 
 .container {
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center
@@ -33,10 +33,15 @@ a {
 }
 
 /* Header */
-form {
-    padding: 15px;
-    border-radius: 7px;
+.controls-wrapper {
     background: rgba(0,0,0,.5);
+    padding: 15px;
+    max-width: 100%;
+    border-radius: 7px;
+    margin-bottom: 20px;
+}
+
+form {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between
@@ -54,22 +59,22 @@ form input {
     background-color: rgb(224, 205, 189)
 }
 
-.controls {
+.form-controls {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    height: 45px
+    height: 36px
 }
 
 .submit {
     position: relative;
     width: 10%;
-    min-width: 60px;
+    min-width: 40px;
     padding: 15px 20px;
     margin: 0 5px;
     border: none;
     border-radius: 7px;
-    font-size: 2em;
+    font-size: 1.5em;
     background-color: brown;
     cursor: pointer;
     transition: .3s
@@ -86,14 +91,33 @@ form input {
     background-color: #622A0F
 }
 
+.pagination-controls {
+    display: flex;
+    align-items: center;
+    padding-top: 15px;
+}
+
+.pagination-controls-feedback {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end
+}
+
+.pagination-controls-feedback p {
+    text-align: right;
+    line-height: 18px;
+    margin-right: 5px;
+    font-size: 1em
+}
+
 /* Items display */
 .main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
-    width: 100%;
-    background: rgba(0,0,0,.5)
+    width: 100%
+
 }
 
 .items {
@@ -107,8 +131,9 @@ form input {
 }
 
 .item {
+    justify-self: center;
     height: 200px;
-    max-width: 180px;
+    max-width: 152px;
     margin: 5px;
     padding: 5px;
     border-radius: 7px;
@@ -145,6 +170,10 @@ form input {
     width: 1em
 }
 
+.item a {
+    word-break: break-word;
+}
+
 /* Dropdown selections */
 .dropdown-wrapper {
     display: flex
@@ -152,20 +181,19 @@ form input {
 
 .main .dropdown-wrapper {
     justify-content: center;
-    margin-top: 10px
 }
 
 .dropdown-label {
     width: 10%;
     min-width: 70px;
-    line-height: 22px;
+    line-height: 18px;
     margin-left: 5px;
-    font-size: 1.2em
+    font-size: 1em
 }
 
 .dropdown {
     position: relative;
-    font-size: 1.2rem
+    /* font-size: 1em */
 }
 
 .dropdown::before {
@@ -180,7 +208,7 @@ form input {
     font-weight: 600;
     content: '\f078';
     text-align: center;
-    line-height: 45px;
+    line-height: 36px;
     pointer-events: none;
     transition: .3s
 }
@@ -190,7 +218,7 @@ form input {
 }
 
 select {
-    padding: 5px;
+    padding: 4px;
     padding-left: 10px;
     margin-left: 10px;
     width: 90px;
@@ -198,6 +226,7 @@ select {
     border: none;
     border-radius: 7px;
     background-color: #333;
+    font-size: 1.1em;
     font-weight: 600;
     box-shadow: 0 2px 5px rgba(0,0,0,.5);
     appearance: button
@@ -206,7 +235,7 @@ select {
 /* Pagination */
 .pagination {
     display: flex;
-    margin: 10px 0 30px;
+    margin-top: 10px;
     max-width: 100vw
 }
 
@@ -222,7 +251,7 @@ select {
     padding: 5px;
     border-radius: 7px;
     text-align: center;
-    font-size: 2em;
+    font-size: 1.5em;
     background-color: brown
 }
 
@@ -237,8 +266,14 @@ li a:hover, a:hover {
 
 /* Footer */
 .footer {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    margin: 10px
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-right: 10px
+}
+
+.footer span {
+    margin: 5px;
+    background: rgba(0,0,0,.5)
 }

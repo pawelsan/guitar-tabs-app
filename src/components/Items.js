@@ -1,6 +1,8 @@
 import React from 'react';
 
-const Items = ({ currentPage, itemsPerPage, currentItems, allItems, loading, error }) => {
+const Items = ({
+    // handleItemsPerPage, 
+    currentPage, itemsPerPage, currentItems, allItems, loading, error }) => {
     if (error) {
         return <h2>{error.toString()}</h2>
     }
@@ -16,9 +18,6 @@ const Items = ({ currentPage, itemsPerPage, currentItems, allItems, loading, err
     else {
         return (
             <>
-                <h2>Liczba wszystkich wyników: {allItems.length}</h2>
-                {/* ternary statement below makes the page count show only when needed */}
-                <p>{allItems !== "Start" && allItems.length !== 0 && !loading ? `Strona ${currentPage} z ${Math.ceil(allItems.length / itemsPerPage)}` : null}</p>
                 <ul className="items">
                     {currentItems.map(item => (
                         <li key={item.id} className="item">

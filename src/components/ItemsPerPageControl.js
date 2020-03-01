@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-const ItemsPerPageControl = ({ itemsPerPage }) => {
+const ItemsPerPageControl = ({ handleItemsPerPage }) => {
     const [number, setNumber] = useState(10);
-    itemsPerPage(number)
+    handleItemsPerPage(number)
 
     return (
         <>

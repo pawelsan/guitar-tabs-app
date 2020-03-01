@@ -3,7 +3,7 @@ import Title from './components/Title';
 import Items from './components/Items';
 import Form from './components/Form';
 import Pagination from './components/Pagination';
-import ItemsPerPageControl from './components/ItemsPerPageControl';
+import Copyright from './components/Copyright';
 import axios from 'axios';
 import './App.css';
 
@@ -71,15 +71,16 @@ const App = () => {
                     <Title />
                     <Form
                         addQuery={handleQuery}
+                        handleItemsPerPage={handleItemsPerPage}
+                        pageNumbers={pageNumbers}
+                        itemsPerPage={itemsPerPage}
+                        currentPage={currentPage}
+                        allItems={allItems}
+                        loading={loading}
+                        error={error}
                     />
                 </div>
                 <div className="main">
-                    {pageNumbers.length > 1 && !error && !loading ?
-                        <ItemsPerPageControl
-                            itemsPerPage={handleItemsPerPage}
-                        />
-                        : null
-                    }
                     <Items
                         currentItems={currentItems}
                         itemsPerPage={itemsPerPage}
@@ -89,7 +90,7 @@ const App = () => {
                         error={error}
                     />
                     {/* the if statement implemented to prevent pagination from appearing if the number of items is less than the number of items per page
-            the error taken into thi conditions to awoid a bug where the previous pagination remained visible while new query returned error */}
+            the error taken into this conditions to avoid a bug where the previous pagination remained visible while new query returned error */}
                     {pageNumbers.length > 1 && !error && !loading ?
                         <Pagination
                             paginate={paginate}
@@ -99,8 +100,10 @@ const App = () => {
                         : null
                     }
                 </div>
+                <div className="footer">
+                    <Copyright />
+                </div>
             </div>
-            <div className="footer">Paweł Hińcza &copy;2020</div>
         </div>
     );
 }

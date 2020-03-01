@@ -41,8 +41,8 @@ const Pagination = ({ paginate, pageNumbers, currentPage }) => {
                         <a
                             onClick={() => paginate(currentPage - 1)}
                             href="#">
-                            Wstecz
-                </a>
+                            <i className="fas fa-caret-left"></i>
+                        </a>
                     </li>
                     : null
                 }
@@ -64,8 +64,8 @@ const Pagination = ({ paginate, pageNumbers, currentPage }) => {
                         <a
                             onClick={() => paginate(currentPage + 1)}
                             href="#">
-                            Dalej
-                </a>
+                            <i className="fas fa-caret-right"></i>
+                        </a>
                     </li>
                     : null
                 }
