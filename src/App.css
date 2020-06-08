@@ -35,6 +35,7 @@ a {
 /* Header */
 .header {
     min-width: 50%;
+    max-width: 100%;
 }
 .controls-wrapper {
     background: rgba(0,0,0,.5);
@@ -143,13 +144,6 @@ form input {
     background-color: brown;
     word-wrap: break-word
 }
-
-@media (max-width: 1023px) {
-    .items {
-        width: 50%;
-        grid-gap: 25px;
-    }
-  }
 
 .item ol > li {
     padding: 5px
@@ -287,3 +281,14 @@ li a:hover, a:hover {
     margin: 5px;
     background: rgba(0,0,0,.5)
 }
+
+
+@media (max-width: 1023px) {
+    .items {
+        width: 50%;
+        grid-gap: 25px;
+    }
+    select {
+        width: 100px;
+    }
+  }
