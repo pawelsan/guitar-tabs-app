@@ -5,10 +5,10 @@ const Title = () => {
         <>
             <h1>
                 Tabulatury dla gitarzystów
-        </h1>
+            </h1>
             <h2>
                 Wyszukaj:
-        </h2>
+            </h2>
         </>
     );
 }
