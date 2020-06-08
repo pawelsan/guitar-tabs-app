@@ -1,8 +1,8 @@
 .App {
     margin: 0 auto;
     max-width: 1400px;
-    min-height: 100vh;
-    font-size: 10px;
+    /* min-height: 100vh; */
+    font-size: 14px;
     background: url('./images/guitar.jpg') no-repeat;
     background-position: 55% center;
     background-attachment: fixed
@@ -33,6 +33,9 @@ a {
 }
 
 /* Header */
+.header {
+    min-width: 50%;
+}
 .controls-wrapper {
     background: rgba(0,0,0,.5);
     padding: 15px;
@@ -123,23 +126,30 @@ form input {
 .items {
     /* Eventually I used grid instead of flexbox to make it more responsive */
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     grid-auto-rows: 1fr;
     grid-gap: 5px;
-    width: 60%;
+    width: 1000px;
     font-size: 1.2em
 }
 
 .item {
     justify-self: center;
-    height: 200px;
-    max-width: 152px;
+    height: 260px;
+    width: 180px;
     margin: 5px;
     padding: 5px;
     border-radius: 7px;
     background-color: brown;
     word-wrap: break-word
 }
+
+@media (max-width: 1023px) {
+    .items {
+        width: 50%;
+        grid-gap: 25px;
+    }
+  }
 
 .item ol > li {
     padding: 5px
@@ -221,7 +231,7 @@ select {
     padding: 4px;
     padding-left: 10px;
     margin-left: 10px;
-    width: 90px;
+    width: 120px;
     height: 100%;
     border: none;
     border-radius: 7px;

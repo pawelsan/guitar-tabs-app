@@ -44,7 +44,7 @@ const Form = ({ addQuery, handleItemsPerPage, pageNumbers, currentPage, allItems
                         handleItemsPerPage={handleItemsPerPage}
                     />
                     <div className="pagination-controls-feedback">
-                        <p>Wszystkich wyników:&nbsp;{allItems.length}</p>
+                        <p>Wyników:&nbsp;{allItems.length}</p>
                         <p>Strona {currentPage} z {Math.ceil(allItems.length / itemsPerPage)}</p>
                     </div>
                 </div>
